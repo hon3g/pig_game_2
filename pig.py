@@ -9,6 +9,12 @@ class Player:
         self._turn_total = 0
         self._temp_score = self._score + self._turn_total
 
+    def __repr__(self):
+        return f'{0}({1}, {2}, {3})'.format(
+            self.__class__.__name__,
+            self._score, self._turn_total,
+            self._temp_score)
+
     @property
     def score(self):
         return self._score
@@ -40,6 +46,9 @@ class Die:
     def __init__(self):
         self._face = None
 
+    def __repr__(self):
+        return f'{self.__class__.__name__}()'
+
     @property
     def face(self):
         return self._face
@@ -54,6 +63,12 @@ class Game:
     def __init__(self, players, die):
         self._players = players
         self._die = die
+
+    def __repr__(self):
+        return f'{0}({1}, {2})'.format(
+            self.__class__.__name__,
+            self._players,
+            self._die)
 
     def print_scores(self):
         for i in range(len(self._players)):
